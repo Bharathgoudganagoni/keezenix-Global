@@ -42,10 +42,7 @@ const values = [
 ];
 
 const team = [
-  { name: "Michael Chen", role: "CEO & Founder", initial: "M" },
-  { name: "Priya Sharma", role: "CTO", initial: "P" },
-  { name: "James Okafor", role: "Head of Recruitment", initial: "J" },
-  { name: "Sofia Rodriguez", role: "Director of Operations", initial: "S" },
+  { name: "Kesara Srikanth Reddy", role: "CEO & Founder", initial: "S" },
 ];
 
 const About = () => {
@@ -290,12 +287,12 @@ const About = () => {
               <AnimatedSection key={member.name} delay={i * 100}>
                 <div className="text-center group">
                   <div
-                    className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300"
+                    className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center text-center text-white font-bold text-2xl leading-none shadow-lg group-hover:scale-110 transition-transform duration-300"
                     style={{
                       background: `linear-gradient(135deg, hsl(var(--primary)), hsl(${231 + i * 20}, 68%, 50%))`,
                     }}
                   >
-                    {member.initial}
+                    <span className="leading-none">{member.initial}</span>
                   </div>
                   <h4 className="font-semibold text-foreground text-sm">{member.name}</h4>
                   <p className="text-muted-foreground text-xs mt-1">{member.role}</p>
