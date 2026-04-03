@@ -5,11 +5,78 @@ import {
   ChevronRight, Briefcase, Award, Clock
 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/herobg.jpg";
 import webDevImg from "@/assets/web-dev.jpg";
 import appDevImg from "@/assets/app-dev.jpg";
 import digitalMarketingImg from "@/assets/digital-marketing.jpg";
 import recruitmentImg from "@/assets/recruitment.jpg";
+
+import comcastLogo from "@/assets/comcast.jpg";
+import dupontLogo from "@/assets/dupont.jpg";
+import cienaLogo from "@/assets/ciena.png";
+import caterpillarLogo from "@/assets/caterpillar.jpg";
+import cdwLogo from "@/assets/cdw.png";
+import servicenowLogo from "@/assets/servicenow.jpg";
+
+const clients = [
+  { name: "Comcast", logo: comcastLogo },
+  { name: "DuPont", logo: dupontLogo },
+  { name: "Ciena", logo: cienaLogo },
+  { name: "Caterpillar", logo: caterpillarLogo },
+  { name: "CDW", logo: cdwLogo },
+  { name: "ServiceNow", logo: servicenowLogo },
+];
+
+const testimonials = [
+  {
+    name: "Rahul Verma",
+    role: "Product Manager",
+    feedback:
+      "Keezenix helped us scale our development team quickly with top-quality talent. Their process is smooth and reliable.",
+  },
+  {
+    name: "Anjali Mehta",
+    role: "Marketing Head",
+    feedback:
+      "Their digital marketing strategies boosted our online presence and conversions significantly. Highly recommended!",
+  },
+  {
+    name: "David Johnson",
+    role: "CEO, Tech Startup",
+    feedback:
+      "Professional, efficient, and result-driven. Keezenix delivered beyond expectations on every project.",
+  },
+  {
+    name: "Sneha Reddy",
+    role: "HR Manager",
+    feedback:
+      "The recruitment team at Keezenix understands our needs perfectly. We’ve hired some of our best talent through them.",
+  },
+  {
+    name: "Arjun Patel",
+    role: "Startup Founder",
+    feedback:
+      "From idea to execution, Keezenix handled everything with precision. Their tech team is outstanding.",
+  },
+  {
+    name: "Kiran Kumar",
+    role: "Operations Lead",
+    feedback:
+      "Their commitment to timelines and quality delivery is impressive. A very dependable partner.",
+  },
+  {
+    name: "Emily Davis",
+    role: "Business Consultant",
+    feedback:
+      "Great experience working with Keezenix. Their solutions are practical, scalable, and future-ready.",
+  },
+  {
+    name: "Mohammed Ali",
+    role: "IT Director",
+    feedback:
+      "Their technical expertise and support have been crucial in optimizing our systems and workflows.",
+  },
+];
 
 const services = [
   {
@@ -454,6 +521,84 @@ const Home = () => {
                 </div>
               </div>
             </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Testimonials Section ─── */}
+      <section className="py-20 bg-white">
+        <div className="container max-w-7xl mx-auto px-4">
+          
+          <AnimatedSection>
+            <div className="text-center mb-14">
+              <span className="green-badge">Testimonials</span>
+              <h2 className="section-title text-center">
+                What Our Clients Say
+              </h2>
+              <p className="section-subtitle text-center">
+                Real feedback from businesses we’ve worked with.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="overflow-hidden relative">
+            <div className="flex gap-8 animate-testimonial-scroll group">
+              {[...testimonials, ...testimonials].map((item, i) => (
+                <div
+                  key={i}
+                  className="min-w-[300px] max-w-[300px] p-6 rounded-2xl border border-border/40 bg-muted/30 shadow-sm hover:-translate-y-1 transition"
+                >
+                  {/* Stars */}
+                  <div className="flex gap-1 mb-4">
+                    {[1, 2, 3, 4, 5].map((s) => (
+                      <span key={s} className="text-yellow-400 text-sm">★</span>
+                    ))}
+                  </div>
+
+                  {/* Feedback */}
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                    "{item.feedback}"
+                  </p>
+
+                  {/* User */}
+                  <div>
+                    <h4 className="font-semibold text-foreground text-sm">
+                      {item.name}
+                    </h4>
+                    <p className="text-xs text-muted-foreground">
+                      {item.role}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Our Clients Section ─── */}
+      <section className="py-16 bg-white">
+        <div className="container max-w-7xl mx-auto px-4">
+          <AnimatedSection>
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold tracking-wide text-foreground">
+                OUR CLIENTS
+              </h2>
+            </div>
+          </AnimatedSection>
+
+          <div className="overflow-hidden relative">
+            <div className="flex gap-10 animate-scroll whitespace-nowrap">
+              {[...clients, ...clients].map((client, i) => (
+                <div key={i} className="flex items-center justify-center min-w-[160px]">
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="h-14 w-auto object-contain transition-transform duration-300 hover:rotate-3 hover:scale-110"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

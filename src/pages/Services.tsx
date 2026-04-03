@@ -10,28 +10,30 @@ import webDevImg from "@/assets/web-dev.jpg";
 import appDevImg from "@/assets/app-dev.jpg";
 import digitalMarketingImg from "@/assets/digital-marketing.jpg";
 import recruitmentImg from "@/assets/recruitment.jpg";
+import staffingImg from "@/assets/staffing.png";
+import supportImg from "@/assets/support.png";
 import techBgImg from "@/assets/tech-bg.jpg";
 
 const itServices = [
   {
     icon: Code2,
     title: "Website Development",
-    desc: "We design and develop high-performance, SEO-optimized websites that captivate users and convert visitors into customers. From landing pages to enterprise portals.",
-    features: ["Custom Design", "Responsive Layout", "SEO Optimized", "CMS Integration"],
+    desc: "We design and develop high-performance, SEO-optimized websites that engage users and drive conversions — from landing pages to enterprise platforms.",
+    features: ["Custom UI/UX Design", "Fully Responsive Layout", "SEO Optimization", "CMS & Admin Integration"],
     img: webDevImg,
   },
   {
     icon: Smartphone,
     title: "Application Development",
-    desc: "Native iOS, Android, and cross-platform mobile applications built for performance, scalability, and exceptional user experience.",
-    features: ["iOS & Android", "React Native / Flutter", "API Integration", "App Store Deployment"],
+    desc: "Scalable mobile and web applications built for performance, flexibility, and exceptional user experience across all platforms.",
+    features: ["iOS & Android Apps", "Cross-platform (Flutter / React Native)", "API & Backend Integration", "App Store & Play Store Deployment"],
     img: appDevImg,
   },
   {
     icon: Megaphone,
     title: "Digital Marketing",
-    desc: "Comprehensive digital marketing strategies — from SEO and PPC to social media and content marketing — that grow your brand and generate qualified leads.",
-    features: ["SEO & SEM", "Social Media Marketing", "PPC Campaigns", "Analytics & Reporting"],
+    desc: "Data-driven digital marketing strategies that increase visibility, attract the right audience, and generate measurable business growth.",
+    features: ["SEO & Search Marketing", "Social Media Campaigns", "Paid Advertising (PPC)", "Analytics & Performance Tracking"],
     img: digitalMarketingImg,
   },
 ];
@@ -49,14 +51,14 @@ const hrServices = [
     title: "Staffing Solutions",
     desc: "Flexible staffing models — contract, permanent, and project-based — that give you the workforce agility your business demands.",
     features: ["Contract Staffing", "Permanent Placement", "Project Teams", "Managed Services"],
-    img: recruitmentImg,
+    img: staffingImg,
   },
   {
     icon: UserCheck,
     title: "Recruitment Support",
     desc: "End-to-end recruitment process outsourcing (RPO) and advisory services that streamline your hiring funnel and reduce time-to-fill.",
     features: ["RPO Services", "HR Advisory", "Job Description Writing", "Interview Coordination"],
-    img: recruitmentImg,
+    img: supportImg,
   },
 ];
 
@@ -88,8 +90,8 @@ const Services = () => {
               Our Services
             </h1>
             <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
-              Comprehensive IT and HR solutions designed to accelerate your
-              digital transformation and build the team that drives it.
+              Comprehensive IT and Talent Solutions End-to-end technology and recruitment
+              services designed to accelerate digital transformation and build high-performing teams.
             </p>
           </div>
         </AnimatedSection>

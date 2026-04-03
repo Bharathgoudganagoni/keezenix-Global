@@ -5,44 +5,52 @@ import {
 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import aboutOfficeImg from "@/assets/about-office.jpg";
-import teamImg from "@/assets/team.jpg";
 import techBgImg from "@/assets/tech-bg.jpg";
+import team1 from "@/assets/team1.jpg";
+import team2 from "@/assets/team2.jpg";
+import team3 from "@/assets/team3.jpg";
+import team4 from "@/assets/team4.jpg";
+
+const teamImages = [team1, team2, team3, team4];
 
 const values = [
   {
     icon: Lightbulb,
     title: "Innovation",
-    desc: "We continuously push boundaries, embracing the latest technologies to deliver forward-thinking solutions.",
+    desc: "We embrace change and leverage emerging technologies to deliver forward-thinking solutions.",
   },
   {
     icon: Heart,
     title: "Integrity",
-    desc: "Honesty and transparency form the foundation of every client relationship we build.",
+    desc: "We build trust through honesty, transparency, and accountability.",
   },
   {
     icon: TrendingUp,
     title: "Excellence",
-    desc: "We hold ourselves to the highest standards in both our technical work and our talent solutions.",
+    desc: "We strive for the highest standards in everything we deliver.",
   },
   {
     icon: Users,
     title: "Collaboration",
-    desc: "We work as an extension of your team, aligning our goals with yours to achieve shared success.",
+    desc: "We work closely with our clients as an extension of their team.",
   },
   {
     icon: Globe,
     title: "Global Perspective",
-    desc: "With a global network, we bring world-class expertise to every project we undertake.",
+    desc: "We bring diverse insights and global expertise to every engagement.",
   },
   {
     icon: Shield,
     title: "Reliability",
-    desc: "Our clients count on us to deliver — every time. We honor our commitments without compromise.",
+    desc: "We deliver on our promises — consistently and without compromise.",
   },
 ];
 
 const team = [
-  { name: "Kesara Srikanth Reddy", role: "CEO & Founder", initial: "S" },
+  { name: "Michael Chen", role: "CEO & Founder", initial: "M" },
+  { name: "Priya Sharma", role: "CTO", initial: "P" },
+  { name: "James Okafor", role: "Head of Recruitment", initial: "J" },
+  { name: "Sofia Rodriguez", role: "Director of Operations", initial: "S" },
 ];
 
 const About = () => {
@@ -64,8 +72,8 @@ const About = () => {
               Who We Are
             </h1>
             <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
-              A passionate team of technologists and talent experts committed to
-              driving business transformation through innovation and strategic hiring.
+              A passionate team of technology innovators and talent experts dedicated
+              to transforming businesses through cutting-edge solutions and strategic hiring..
             </p>
           </div>
         </AnimatedSection>
@@ -81,21 +89,22 @@ const About = () => {
                 Redefining What's Possible in IT & Talent
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-5">
-                Keezenix Global was founded with a singular vision: to bridge the
-                gap between businesses and the technology and talent they need to
-                thrive. We recognized that too many companies were struggling to
-                navigate a rapidly changing digital landscape without the right
-                partners by their side.
+                Keezenix Global was founded with a clear vision — to bridge
+                the gap between businesses and the technology and talent they
+                need to succeed in a rapidly evolving digital world.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-5">
-                Today, we serve clients across industries — from startups to
-                enterprise-level organizations — delivering bespoke IT solutions
-                and recruitment services that create measurable impact.
+                We saw organizations struggling to adapt without the right
+                expertise and support. That’s where we stepped in — as a trusted
+                partner delivering both innovative IT solutions and precision-driven recruitment services.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Our team of engineers, designers, marketers, and HR specialists
-                bring together decades of combined experience to ensure every
-                engagement is a success story.
+                Today, we work with startups, growing companies, and enterprise organizations
+                across industries, helping them achieve measurable results and sustainable growth.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                Our diverse team of engineers, designers, marketers, and HR specialists brings
+                deep expertise and a shared commitment to excellence in every engagement.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
@@ -139,12 +148,12 @@ const About = () => {
                   <h3 className="text-foreground font-bold text-lg mb-5">What Sets Us Apart</h3>
                   <div className="space-y-3">
                     {[
-                      "Deep domain expertise in IT and HR",
-                      "Tailored solutions, not cookie-cutter approaches",
-                      "Agile delivery with transparent communication",
-                      "A vetted network of over 50,000 professionals",
-                      "Post-engagement support and partnership",
-                      "Commitment to diversity and inclusion in hiring",
+                      "Deep expertise across IT and talent solutions",
+                      "Customized strategies tailored to your business needs",
+                      "Agile execution with transparent communication",
+                      "Access to a network of 50,000+ vetted professionals",
+                      "Continuous support beyond project delivery",
+                      "Strong commitment to diversity and inclusive hiring",
                     ].map((point) => (
                       <div key={point} className="flex items-start gap-3">
                         <CheckCircle2
@@ -189,10 +198,9 @@ const About = () => {
                 </div>
                 <h3 className="text-white font-bold text-xl mb-3">Our Mission</h3>
                 <p className="text-white/75 leading-relaxed text-sm">
-                  To empower organizations with transformative IT solutions and
-                  precision-matched talent, enabling them to operate more
-                  efficiently, compete more effectively, and grow more sustainably
-                  in an ever-evolving digital world.
+                  To empower organizations with innovative IT solutions and precisely
+                  matched talent, enabling them to operate efficiently, compete confidently,
+                  and grow sustainably in a digital-first world.
                 </p>
               </div>
             </AnimatedSection>
@@ -211,10 +219,8 @@ const About = () => {
                 </div>
                 <h3 className="text-primary font-bold text-xl mb-3">Our Vision</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm">
-                  To be the most trusted global partner for IT innovation and
-                  talent excellence — a company where businesses come to solve
-                  their toughest challenges and where professionals find
-                  opportunities that truly match their potential.
+                  To become a globally trusted partner in IT innovation and talent excellence — where businesses
+                  solve their toughest challenges and professionals discover meaningful opportunities.
                 </p>
               </div>
             </AnimatedSection>
@@ -271,31 +277,43 @@ const About = () => {
             </div>
           </AnimatedSection>
 
-          {/* Team group photo */}
+          {/* Multiple Team Images */}
           <AnimatedSection>
-            <div className="rounded-3xl overflow-hidden border border-border/40 shadow-xl mb-12 max-w-3xl mx-auto">
-              <img
-                src={teamImg}
-                alt="Keezenix leadership team"
-                className="w-full h-72 object-cover object-top"
-              />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-5xl mx-auto">
+              {teamImages.map((img, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl overflow-hidden border border-border/40 shadow-lg"
+                >
+                  <img
+                    src={img}
+                    alt={`Team ${i + 1}`}
+                    className="w-full h-48 object-cover hover:scale-105 transition duration-300"
+                  />
+                </div>
+              ))}
             </div>
           </AnimatedSection>
 
+          {/* Team Members */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {team.map((member, i) => (
               <AnimatedSection key={member.name} delay={i * 100}>
                 <div className="text-center group">
                   <div
-                    className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center text-center text-white font-bold text-2xl leading-none shadow-lg group-hover:scale-110 transition-transform duration-300"
+                    className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300"
                     style={{
                       background: `linear-gradient(135deg, hsl(var(--primary)), hsl(${231 + i * 20}, 68%, 50%))`,
                     }}
                   >
-                    <span className="leading-none">{member.initial}</span>
+                    {member.initial}
                   </div>
-                  <h4 className="font-semibold text-foreground text-sm">{member.name}</h4>
-                  <p className="text-muted-foreground text-xs mt-1">{member.role}</p>
+                  <h4 className="font-semibold text-foreground text-sm">
+                    {member.name}
+                  </h4>
+                  <p className="text-muted-foreground text-xs mt-1">
+                    {member.role}
+                  </p>
                 </div>
               </AnimatedSection>
             ))}

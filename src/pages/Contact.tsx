@@ -331,43 +331,29 @@ const Contact = () => {
                   </a>
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <MapPin size={15} className="text-primary flex-shrink-0" />
-                    Keezenix Global LLP
+                    United States
                   </div>
                 </div>
 
                 <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">
                   Follow Us
                 </p>
-               <div className="flex gap-3">
-  {[
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      url: "https://www.linkedin.com/company/keezenixglobal/posts/?feedView=all",
-    },
-    {
-      icon: Facebook,
-      label: "Facebook",
-      url: "https://www.facebook.com/your-page",
-    },
-    {
-      icon: Instagram,
-      label: "Instagram",
-      url: "https://www.instagram.com/keezenixglobal/?utm_source=ig_web_button_share_sheet",
-    },
-  ].map(({ icon: Icon, label, url }) => (
-    <a
-      key={label}
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label}
-      className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 border border-border hover:border-primary hover:text-primary text-muted-foreground"
-    >
-      <Icon size={16} />
-    </a>
-  ))}
-</div>
+                <div className="flex gap-3">
+                  {[
+                    { icon: Linkedin, label: "LinkedIn" },
+                    { icon: Facebook, label: "Facebook" },
+                    { icon: Instagram, label: "Instagram" },
+                  ].map(({ icon: Icon, label }) => (
+                    <a
+                      key={label}
+                      href="#"
+                      aria-label={label}
+                      className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 border border-border hover:border-primary hover:text-primary text-muted-foreground"
+                    >
+                      <Icon size={16} />
+                    </a>
+                  ))}
+                </div>
               </div>
             </AnimatedSection>
           </div>

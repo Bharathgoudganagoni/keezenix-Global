@@ -276,3 +276,35 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 15s linear infinite;
+}
+
+
+@keyframes testimonialScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-testimonial-scroll {
+  animation: testimonialScroll 45s linear infinite;
+}
+
+.group:hover .animate-testimonial-scroll {
+  animation-play-state: paused;
+}

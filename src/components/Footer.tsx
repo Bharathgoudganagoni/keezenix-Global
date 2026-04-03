@@ -37,33 +37,16 @@ const Footer = () => {
             </p>
 
             <div className="flex gap-3">
-  <a
-    href="https://www.facebook.com/your-page"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/70 hover:bg-secondary hover:text-white transition"
-  >
-    <Facebook size={15} />
-  </a>
-
-  <a
-    href="https://www.linkedin.com/company/keezenixglobal/posts/?feedView=all"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/70 hover:bg-secondary hover:text-white transition"
-  >
-    <Linkedin size={15} />
-  </a>
-
-  <a
-    href="https://www.instagram.com/keezenixglobal/?utm_source=ig_web_button_share_sheet"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/70 hover:bg-secondary hover:text-white transition"
-  >
-    <Instagram size={15} />
-  </a>
-</div>
+              <a className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/70 hover:bg-secondary hover:text-white transition">
+                <Facebook size={15} />
+              </a>
+              <a className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/70 hover:bg-secondary hover:text-white transition">
+                <Linkedin size={15} />
+              </a>
+              <a className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/70 hover:bg-secondary hover:text-white transition">
+                <Instagram size={15} />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -151,23 +134,14 @@ srikanth@keezenix.com
               </li>
 
               <li className="flex items-start gap-3">
-  <div className="w-8 h-8 rounded-lg bg-secondary/20 flex items-center justify-center">
-    <MapPin size={14} className="text-secondary" />
-  </div>
-
-  <div>
-    <p className="text-white/40 text-xs">Location</p>
-
-    <a
-      href="https://www.google.com/maps/place/Keezenix+Global+LLP/@17.4412517,78.3807081,20z/data=!4m14!1m7!3m6!1s0x6d41b905e5580e55:0x156fb4a2b2e98c1b!2sKeezenix+Global+LLP!8m2!3d17.4410208!4d78.3808208!16s%2Fg%2F11mrf0ptqb!3m5!1s0x6d41b905e5580e55:0x156fb4a2b2e98c1b!8m2!3d17.4410208!4d78.3808208!16s%2Fg%2F11mrf0ptqb?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-white/70 text-sm hover:text-secondary transition-colors cursor-pointer"
-    >
-      Hyderabad, Telangana, India 
-    </a>
-  </div>
-</li>
+                <div className="w-8 h-8 rounded-lg bg-secondary/20 flex items-center justify-center">
+                  <MapPin size={14} className="text-secondary" />
+                </div>
+                <div>
+                  <p className="text-white/40 text-xs">Location</p>
+                  <p className="text-white/70 text-sm">United States</p>
+                </div>
+              </li>
 
             </ul>
           </div>
