@@ -164,7 +164,7 @@ srikanth@keezenix.com
       rel="noopener noreferrer"
       className="text-white/70 text-sm hover:text-secondary transition-colors cursor-pointer"
     >
-      Keezenix Global 
+      Hyderabad, Telangana, India 
     </a>
   </div>
 </li>
