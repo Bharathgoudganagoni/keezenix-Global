@@ -151,14 +151,23 @@ srikanth@keezenix.com
               </li>
 
               <li className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-secondary/20 flex items-center justify-center">
-                  <MapPin size={14} className="text-secondary" />
-                </div>
-                <div>
-                  <p className="text-white/40 text-xs">Location</p>
-                  <p className="text-white/70 text-sm">United States</p>
-                </div>
-              </li>
+  <div className="w-8 h-8 rounded-lg bg-secondary/20 flex items-center justify-center">
+    <MapPin size={14} className="text-secondary" />
+  </div>
+
+  <div>
+    <p className="text-white/40 text-xs">Location</p>
+
+    <a
+      href="https://www.google.com/maps/place/Keezenix+Global+LLP/@17.4412517,78.3807081,20z/data=!4m14!1m7!3m6!1s0x6d41b905e5580e55:0x156fb4a2b2e98c1b!2sKeezenix+Global+LLP!8m2!3d17.4410208!4d78.3808208!16s%2Fg%2F11mrf0ptqb!3m5!1s0x6d41b905e5580e55:0x156fb4a2b2e98c1b!8m2!3d17.4410208!4d78.3808208!16s%2Fg%2F11mrf0ptqb?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-white/70 text-sm hover:text-secondary transition-colors cursor-pointer"
+    >
+      Keezenix Global 
+    </a>
+  </div>
+</li>
 
             </ul>
           </div>

@@ -331,7 +331,7 @@ const Contact = () => {
                   </a>
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <MapPin size={15} className="text-primary flex-shrink-0" />
-                    United States
+                    Keezenix Global LLP
                   </div>
                 </div>
 
