@@ -45,11 +45,8 @@ const jobs = [
     location: "Remote / India",
     type: "Full-Time",
     desc: "Support recruitment, client coordination, and HR operations while working closely with our growing team.",
-    skills: ["Recruitment", "Communication", "MS Office", "HR Operations"],
-    applyLink:
-      "https://unstop.com/jobs/executive-assistant-recruitments-and-client-services-keezenix-global-llp-1666509"
+    skills: ["Recruitment", "Communication", "MS Office", "HR Operations"]
   },
-  
   {
     title: "Backend Developer (Node.js)",
     location: "Bangalore",
@@ -64,7 +61,6 @@ const jobs = [
     desc: "Drive growth through SEO, paid campaigns, and social media.",
     skills: ["SEO", "Google Ads", "Analytics", "Content"]
   }
-  
 ];
 
 const Careers = () => {
@@ -125,50 +121,48 @@ const Careers = () => {
           <div className="space-y-6">
             {jobs.map((job, i) => (
               <AnimatedSection key={job.title} delay={i * 100}>
-                <div className="service-card p-6 flex flex-col md:flex-row md:justify-between gap-5">
 
-                  {/* LEFT CONTENT */}
-                  <div>
-                    <h3 className="font-bold text-lg">{job.title}</h3>
+                {/* ✅ FULL CARD CLICKABLE */}
+                <Link to={`/careers/${i}`} className="block">
+                  <div className="service-card p-6 flex flex-col md:flex-row md:justify-between gap-5 cursor-pointer hover:shadow-lg transition">
 
-                    <div className="flex gap-4 text-sm text-muted-foreground mt-1">
-                      <span className="flex items-center gap-1">
-                        <MapPin size={14} /> {job.location}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock size={14} /> {job.type}
-                      </span>
-                    </div>
+                    {/* LEFT CONTENT */}
+                    <div>
+                      <h3 className="font-bold text-lg">{job.title}</h3>
 
-                    <p className="text-sm mt-2 text-muted-foreground">
-                      {job.desc}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      {job.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
-                        >
-                          {skill}
+                      <div className="flex gap-4 text-sm text-muted-foreground mt-1">
+                        <span className="flex items-center gap-1">
+                          <MapPin size={14} /> {job.location}
                         </span>
-                      ))}
+                        <span className="flex items-center gap-1">
+                          <Clock size={14} /> {job.type}
+                        </span>
+                      </div>
+
+                      <p className="text-sm mt-2 text-muted-foreground">
+                        {job.desc}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        {job.skills.map((skill) => (
+                          <span
+                            key={skill}
+                            className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* APPLY BUTTON */}
-                  <div className="flex items-center">
-                    <a
-                      href={job.applyLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all"
-                    >
+                    {/* APPLY TEXT (NOT LINK NOW) */}
+                    <div className="flex items-center text-primary text-sm font-semibold gap-1">
                       Apply Now <ChevronRight size={14} />
-                    </a>
-                  </div>
+                    </div>
 
-                </div>
+                  </div>
+                </Link>
+
               </AnimatedSection>
             ))}
           </div>
@@ -227,14 +221,9 @@ const Careers = () => {
             Start your journey with us today.
           </p>
 
-          <a
-            href="https://unstop.com/jobs/executive-assistant-recruitments-and-client-services-keezenix-global-llp-1666509"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-hero"
-          >
+          <Link to="/careers/0" className="btn-hero">
             Apply Now <ArrowRight size={16} />
-          </a>
+          </Link>
         </AnimatedSection>
       </section>
 
