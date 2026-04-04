@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { MapPin, Clock, CheckCircle2, CheckCircle } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 /* ✅ Job Type */
 type Job = {
@@ -50,9 +50,11 @@ const JobDetails = () => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   /* ✅ Success Popup State (FIXED POSITION) */
   const [success, setSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   /* ✅ Submit */
   const handleSubmit = async (e: React.FormEvent) => {
@@ -71,10 +73,17 @@ const JobDetails = () => {
     formData.append("resume", file);
 
     try {
-      await fetch("https://keezenix-backend.onrender.com/apply", {
+      setIsSubmitting(true);
+      const apiUrl = import.meta.env.VITE_API_URL || "https://keezenix-backend.onrender.com";
+      const response = await fetch(`${apiUrl}/apply`, {
         method: "POST",
         body: formData
       });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || "Failed to submit application");
+      }
 
       // ✅ Show success popup
       setSuccess(true);
@@ -85,15 +94,20 @@ const JobDetails = () => {
       setPhone("");
       setMessage("");
       setFile(null);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
 
       // ✅ Auto hide after 3 sec
       setTimeout(() => {
         setSuccess(false);
       }, 3000);
 
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
-      alert("Error sending application");
+      alert(err.message || "Error sending application");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -185,12 +199,15 @@ const JobDetails = () => {
           />
 
           <input
+            ref={fileInputRef}
             type="file"
+            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
             onChange={(e) =>
               e.target.files && setFile(e.target.files[0])
             }
             className="w-full"
             required
+            disabled={isSubmitting}
           />
 
           <textarea
@@ -200,8 +217,8 @@ const JobDetails = () => {
             className="w-full p-3 border rounded"
           />
 
-          <button type="submit" className="btn-hero">
-            Submit Application
+          <button type="submit" className="btn-hero" disabled={isSubmitting}>
+            {isSubmitting ? "Submitting..." : "Submit Application"}
           </button>
 
         </form>
