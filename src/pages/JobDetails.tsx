@@ -71,7 +71,7 @@ const JobDetails = () => {
     formData.append("resume", file);
 
     try {
-      await fetch("http://localhost:5000/apply", {
+      await fetch("https://keezenix-backend.onrender.com/apply", {
         method: "POST",
         body: formData
       });
