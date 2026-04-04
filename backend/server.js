@@ -4,32 +4,47 @@ const multer = require("multer");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
+
+// ✅ CORS (important for frontend)
+app.use(cors({
+  origin: "*"
+}));
+
 app.use(express.json());
 
-// File upload
+// ✅ File upload
 const upload = multer({ dest: "uploads/" });
 
-// Email config
+// ✅ Email config (USE ENV VARIABLES)
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "22641a05d9@vaagdevi.edu.in",        // ✅ your email
-    pass: "ngeyyhpukkyyooev"            // ✅ app password (no spaces)
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
 });
 
-// API
+// ✅ Test route (optional but useful)
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
+// ✅ API
 app.post("/apply", upload.single("resume"), async (req, res) => {
   try {
     const { name, email, phone, message } = req.body;
     const file = req.file;
 
-    await transporter.sendMail({
-      from: `"Keezenix Careers" <yourmail@gmail.com>`,  // ✅ comma here
-      to: "22641a05d9@vaagdevi.edu.in",                  // ✅ real email
+    // ✅ Safety check
+    if (!file) {
+      return res.status(400).send("No resume uploaded");
+    }
 
-      subject: `New Job Application - ${name}`,        // ✅ comma here
+    await transporter.sendMail({
+      from: `"Keezenix Careers" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER, // your sir mail
+
+      subject: `New Job Application - ${name}`,
 
       html: `
         <div style="font-family: Arial; line-height: 1.6;">
@@ -52,7 +67,7 @@ app.post("/apply", upload.single("resume"), async (req, res) => {
           <br/>
           <p>Regards,<br/>Keezenix Careers Portal</p>
         </div>
-      `,  // ✅ comma here
+      `,
 
       attachments: [
         {
@@ -65,9 +80,14 @@ app.post("/apply", upload.single("resume"), async (req, res) => {
     res.send("Application sent successfully");
 
   } catch (err) {
-    console.error(err);
+    console.error("EMAIL ERROR:", err);
     res.status(500).send("Error sending application");
   }
 });
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+// ✅ PORT FIX (required for Render)
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
