@@ -47,20 +47,6 @@ const jobs = [
     desc: "Support recruitment, client coordination, and HR operations while working closely with our growing team.",
     skills: ["Recruitment", "Communication", "MS Office", "HR Operations"]
   },
-  {
-    title: "Backend Developer (Node.js)",
-    location: "Bangalore",
-    type: "Full-Time",
-    desc: "Design APIs and scalable backend systems using Node.js.",
-    skills: ["Node.js", "Express", "MongoDB", "API Design"]
-  },
-  {
-    title: "Digital Marketing Specialist",
-    location: "Remote",
-    type: "Full-Time",
-    desc: "Drive growth through SEO, paid campaigns, and social media.",
-    skills: ["SEO", "Google Ads", "Analytics", "Content"]
-  }
 ];
 
 const Careers = () => {
@@ -221,9 +207,9 @@ const Careers = () => {
             Start your journey with us today.
           </p>
 
-          <Link to="/careers/0" className="btn-hero">
-            Apply Now <ArrowRight size={16} />
-          </Link>
+          <Link to="/contact" className="btn-hero">
+  Apply Now <ArrowRight size={16} />
+</Link>
         </AnimatedSection>
       </section>
 
