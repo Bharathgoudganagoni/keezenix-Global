@@ -20,7 +20,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Office",
-    value: "United States",
+    value: "Hyderabad,Telangana",
     sub: "Serving clients globally",
     href: "#",
   },
@@ -331,7 +331,7 @@ const Contact = () => {
                   </a>
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <MapPin size={15} className="text-primary flex-shrink-0" />
-                    United States
+                    Hyderabad,Telangana,India
                   </div>
                 </div>
 

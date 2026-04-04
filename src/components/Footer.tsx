@@ -139,7 +139,7 @@ srikanth@keezenix.com
                 </div>
                 <div>
                   <p className="text-white/40 text-xs">Location</p>
-                  <p className="text-white/70 text-sm">United States</p>
+                  <p className="text-white/70 text-sm">Hyderabad,Telangana </p>
                 </div>
               </li>
 
