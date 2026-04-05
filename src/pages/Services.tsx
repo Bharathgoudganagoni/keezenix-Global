@@ -12,6 +12,7 @@ import digitalMarketingImg from "@/assets/digital-marketing.jpg";
 import recruitmentImg from "@/assets/recruitment.jpg";
 import staffingImg from "@/assets/staffing.png";
 import supportImg from "@/assets/support.png";
+import coachingImg from "@/assets/coaching.png";
 import techBgImg from "@/assets/tech-bg.jpg";
 
 const itServices = [
@@ -59,6 +60,13 @@ const hrServices = [
     desc: "End-to-end recruitment process outsourcing (RPO) and advisory services that streamline your hiring funnel and reduce time-to-fill.",
     features: ["RPO Services", "HR Advisory", "Job Description Writing", "Interview Coordination"],
     img: supportImg,
+  },
+  {
+    icon: UserCheck,
+    title: "Career Coaching",
+    desc: "Personalized career guidance to help individuals grow, transition, and succeed in today’s competitive job market.",
+    features: ["Resume Building", "Interview Preparation", "Career Guidance", "Skill Development"],
+    img: coachingImg,
   },
 ];
 
