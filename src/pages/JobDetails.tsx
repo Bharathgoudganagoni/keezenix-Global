@@ -1,6 +1,7 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { MapPin, Clock, CheckCircle2, CheckCircle } from "lucide-react";
 import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 /* ✅ Job Type */
 type Job = {
@@ -43,6 +44,7 @@ const jobs: Job[] = [
 
 const JobDetails = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
 
   /* ✅ Form State */
   const [name, setName] = useState("");
@@ -52,11 +54,13 @@ const JobDetails = () => {
   const [file, setFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  /* ✅ Success Popup State (FIXED POSITION) */
+  /* ✅ States */
   const [success, setSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  /* ✅ Submit */
+  const job = jobs[0];
+
+  /* ✅ Submit with Cloudinary + EmailJS */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -65,53 +69,81 @@ const JobDetails = () => {
       return;
     }
 
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("phone", phone);
-    formData.append("message", message);
-    formData.append("resume", file);
-
     try {
       setIsSubmitting(true);
-      const apiUrl = import.meta.env.VITE_API_URL || "https://keezenix-backend.onrender.com";
-      const response = await fetch(`${apiUrl}/apply`, {
-        method: "POST",
-        body: formData
-      });
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(errorText || "Failed to submit application");
-      }
+      /* 🔥 STEP 1: Upload Resume to Cloudinary */
+      const formData = new FormData();
+formData.append("file", file);
+formData.append("upload_preset", "resume_upload");
+formData.append("resource_type", "raw");
 
-      // ✅ Show success popup
+// ❌ REMOVE THIS if you added earlier
+// formData.append("resource_type", "raw");
+
+const cloudRes = await fetch(
+  "https://api.cloudinary.com/v1_1/dlvcvmqpr/raw/upload", // ✅ CHANGE THIS
+  {
+    method: "POST",
+    body: formData
+  }
+);
+
+const cloudData = await cloudRes.json();
+
+console.log("Cloudinary Response:", cloudData);
+
+if (!cloudRes.ok) {
+  throw new Error(cloudData.error?.message || "Upload failed");
+}
+
+const resumeUrl = cloudData.secure_url;
+
+      /* 🔥 STEP 2: Send Email via EmailJS */
+      const templateParams = {
+        name,
+        email,
+        phone,
+        message: message || "No message provided",
+        job_title: job.title,
+        resume_link: resumeUrl
+      };
+
+      await emailjs.send(
+        "service_shercmh",     // 🔁 replace
+        "template_y0j7dlu",    // 🔁 replace
+        templateParams,
+        "BNcg9oCi16DISG1Bj"      // 🔁 replace
+      );
+
+      /* ✅ Success popup */
       setSuccess(true);
 
-      // ✅ Clear form
+      /* ✅ Reset form */
       setName("");
       setEmail("");
       setPhone("");
       setMessage("");
       setFile(null);
-      if (fileInputRef.current) {
-        fileInputRef.current.value = "";
-      }
+      if (fileInputRef.current) fileInputRef.current.value = "";
 
-      // ✅ Auto hide after 3 sec
+      /* ✅ Redirect */
       setTimeout(() => {
-        setSuccess(false);
-      }, 3000);
+        navigate("/application-submitted", {
+          state: {
+            name,
+            jobTitle: job.title
+          }
+        });
+      }, 1500);
 
     } catch (err: any) {
       console.error(err);
-      alert(err.message || "Error sending application");
+      alert("Failed to send application");
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  const job = jobs[0];
 
   return (
     <div className="pt-32 px-4 max-w-5xl mx-auto">

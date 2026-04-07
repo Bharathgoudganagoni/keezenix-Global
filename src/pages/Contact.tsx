@@ -293,15 +293,15 @@ const Contact = () => {
               {/* Google Maps Embed */}
               <div className="rounded-2xl overflow-hidden border border-border/60 shadow-sm mb-6 h-72">
   <iframe
-    src="https://www.google.com/maps?q=18.1797859,78.7769592&hl=en&z=17&output=embed"
-    width="100%"
-    height="100%"
-    style={{ border: 0 }}
-    allowFullScreen
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-    title="Keezenix Office Location"
-  />
+  src="https://www.google.com/maps?q=Keezenix+Global+LLP&output=embed"
+  width="100%"
+  height="100%"
+  style={{ border: 0 }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  title="Keezenix Office Location"
+/>
 </div>
 
               {/* Quick Info */}

@@ -37,9 +37,7 @@ const Footer = () => {
             </p>
 
             <div className="flex gap-3">
-              <a className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/70 hover:bg-secondary hover:text-white transition">
-                <Facebook size={15} />
-              </a>
+          
               <a className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/70 hover:bg-secondary hover:text-white transition">
                 <Linkedin size={15} />
               </a>

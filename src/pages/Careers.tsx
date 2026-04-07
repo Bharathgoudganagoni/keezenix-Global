@@ -41,12 +41,86 @@ const benefits = [
 /* ─── Job Openings ─── */
 const jobs = [
   {
+    id: "hr-assistant",
+    linkType: "details",
     title: "HR Assistant (0–2 years Exp)",
     location: "Remote / India",
     type: "Full-Time",
     desc: "Support recruitment, client coordination, and HR operations while working closely with our growing team.",
     skills: ["Recruitment", "Communication", "MS Office", "HR Operations"]
   },
+  {
+    id: "system-test",
+    linkType: "contact",
+    title: "Senior System Test Engineer (6–9 Years Exp)",
+    location: "India",
+    type: "Hybrid (4 Days Office + 1 Day WFH)",
+    desc: "Develop & debug FBD / Ladder Logic programs, troubleshoot issues & ensure optimal system performance.",
+    skills: ["Fieldbus protocols", "FBD & Ladder Logic", "Servo, PLC, VFD", "Motion Programming"]
+  },
+  {
+    id: "data-engineer",
+    linkType: "contact",
+    title: "Senior Data Engineer (6–8 Years Exp)",
+    location: "Bengaluru",
+    type: "Full-Time",
+    desc: "Own end-to-end data pipelines & build scalable high-performance systems.",
+    skills: ["Airflow", "Jenkins", "Kafka / Kinesis / Spark", "Advanced SQL"]
+  },
+  {
+    id: "algorithm-engineer",
+    linkType: "contact",
+    title: "Algorithm Engineer (1+ Years Exp)",
+    location: "Chennai",
+    type: "Full-Time",
+    desc: "Design and develop advanced algorithms for high-performance computing applications.",
+    skills: ["C++ Programming", "Image Processing", "Algorithm Design", "MATLAB / Data Analysis"]
+  },
+  {
+    id: "graphic-designer",
+    linkType: "contact",
+    title: "Senior Specialist – Graphic Designer (8+ Years Exp)",
+    location: "Hyderabad",
+    type: "Full-Time",
+    desc: "Create high-quality visual designs, driving strong brand communication and user engagement.",
+    skills: ["Adobe Creative Suite", "Visual Design", "UX/UI", "Data Visualization"]
+  },
+  {
+    id: "software-engineer",
+    linkType: "contact",
+    title: "Sr. Software Engineer (6–9 Years Exp)",
+    location: "Hyderabad",
+    type: "Hybrid (4 Days Office + 1 Day WFH)",
+    desc: "Design and develop scalable software solutions using .NET technologies and object-oriented programming.",
+    skills: [".NET & C#", "OOP", "UML", "Git / SVN"]
+  },
+  {
+    id: "digital-marketing",
+    linkType: "contact",
+    title: "Digital Marketing Associate",
+    location: "Pune",
+    type: "Full-Time",
+    desc: "Manage in-store sales and drive digital engagement through social media and customer interaction.",
+    skills: ["Sales", "Social Media", "Content", "Communication"]
+  },
+  {
+    id: "industry-lead",
+    linkType: "contact",
+    title: "Industry Vertical Lead (10–15 Years Exp)",
+    location: "USA",
+    type: "Full-Time",
+    desc: "Lead and grow the Life Sciences vertical by driving strategic sales and revenue.",
+    skills: ["Sales Strategy", "Client Management", "Market Expansion"]
+  },
+  {
+    id: "business-transformation",
+    linkType: "contact",
+    title: "Lead Business Transformation (5–7 Years Exp)",
+    location: "Mumbai",
+    type: "Full-Time / Hybrid",
+    desc: "Lead business transformation initiatives to drive EBITDA growth and operational excellence.",
+    skills: ["Strategy", "Financial Analysis", "Lean / Six Sigma"]
+  }
 ];
 
 const Careers = () => {
@@ -69,7 +143,7 @@ const Careers = () => {
         </AnimatedSection>
       </section>
 
-      {/* ─── Benefits ─── */}
+      {/* ─── Benefits Section ─── */}
       <section className="py-20 bg-white">
         <div className="container max-w-7xl mx-auto px-4">
           <AnimatedSection>
@@ -105,52 +179,55 @@ const Careers = () => {
           </AnimatedSection>
 
           <div className="space-y-6">
-            {jobs.map((job, i) => (
-              <AnimatedSection key={job.title} delay={i * 100}>
+            {jobs.map((job, i) => {
 
-                {/* ✅ FULL CARD CLICKABLE */}
-                <Link to={`/careers/${i}`} className="block">
-                  <div className="service-card p-6 flex flex-col md:flex-row md:justify-between gap-5 cursor-pointer hover:shadow-lg transition">
+              const linkPath =
+                job.linkType === "details"
+                  ? `/careers/${job.id}`
+                  : `/contact`;
 
-                    {/* LEFT CONTENT */}
-                    <div>
-                      <h3 className="font-bold text-lg">{job.title}</h3>
+              return (
+                <AnimatedSection key={job.id} delay={i * 100}>
+                  <Link to={linkPath} className="block">
+                    <div className="service-card p-6 flex flex-col md:flex-row md:justify-between gap-5 cursor-pointer hover:shadow-lg transition">
 
-                      <div className="flex gap-4 text-sm text-muted-foreground mt-1">
-                        <span className="flex items-center gap-1">
-                          <MapPin size={14} /> {job.location}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Clock size={14} /> {job.type}
-                        </span>
-                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg">{job.title}</h3>
 
-                      <p className="text-sm mt-2 text-muted-foreground">
-                        {job.desc}
-                      </p>
-
-                      <div className="flex flex-wrap gap-2 mt-3">
-                        {job.skills.map((skill) => (
-                          <span
-                            key={skill}
-                            className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
-                          >
-                            {skill}
+                        <div className="flex gap-4 text-sm text-muted-foreground mt-1">
+                          <span className="flex items-center gap-1">
+                            <MapPin size={14} /> {job.location}
                           </span>
-                        ))}
+                          <span className="flex items-center gap-1">
+                            <Clock size={14} /> {job.type}
+                          </span>
+                        </div>
+
+                        <p className="text-sm mt-2 text-muted-foreground">
+                          {job.desc}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2 mt-3">
+                          {job.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
                       </div>
+
+                      <div className="flex items-center text-primary text-sm font-semibold gap-1">
+                        Apply Now <ChevronRight size={14} />
+                      </div>
+
                     </div>
-
-                    {/* APPLY TEXT (NOT LINK NOW) */}
-                    <div className="flex items-center text-primary text-sm font-semibold gap-1">
-                      Apply Now <ChevronRight size={14} />
-                    </div>
-
-                  </div>
-                </Link>
-
-              </AnimatedSection>
-            ))}
+                  </Link>
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -172,8 +249,7 @@ const Careers = () => {
             <h2 className="section-title">Work That Inspires You</h2>
 
             <p className="text-muted-foreground mb-4">
-              We create an environment where people can grow, innovate, and
-              collaborate to achieve excellence.
+              We create an environment where people can grow, innovate, and collaborate.
             </p>
 
             <div className="space-y-2">
@@ -208,8 +284,8 @@ const Careers = () => {
           </p>
 
           <Link to="/contact" className="btn-hero">
-  Apply Now <ArrowRight size={16} />
-</Link>
+            Apply Now <ArrowRight size={16} />
+          </Link>
         </AnimatedSection>
       </section>
 
