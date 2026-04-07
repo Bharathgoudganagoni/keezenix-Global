@@ -49,6 +49,78 @@ const jobs = [
     desc: "Support recruitment, client coordination, and HR operations while working closely with our growing team.",
     skills: ["Recruitment", "Communication", "MS Office", "HR Operations"]
   },
+  {
+    id: "system-test",
+    linkType: "contact",
+    title: "Senior System Test Engineer (6–9 Years Exp)",
+    location: "India",
+    type: "Hybrid (4 Days Office + 1 Day WFH)",
+    desc: "Develop & debug FBD / Ladder Logic programs, troubleshoot issues & ensure optimal system performance.",
+    skills: ["Fieldbus protocols", "FBD & Ladder Logic", "Servo, PLC, VFD", "Motion Programming"]
+  },
+  {
+    id: "data-engineer",
+    linkType: "contact",
+    title: "Senior Data Engineer (6–8 Years Exp)",
+    location: "Bengaluru",
+    type: "Full-Time",
+    desc: "Own end-to-end data pipelines & build scalable high-performance systems.",
+    skills: ["Airflow", "Jenkins", "Kafka / Kinesis / Spark", "Advanced SQL"]
+  },
+  {
+    id: "algorithm-engineer",
+    linkType: "contact",
+    title: "Algorithm Engineer (1+ Years Exp)",
+    location: "Chennai",
+    type: "Full-Time",
+    desc: "Design and develop advanced algorithms for high-performance computing applications.",
+    skills: ["C++ Programming", "Image Processing", "Algorithm Design", "MATLAB / Data Analysis"]
+  },
+  {
+    id: "graphic-designer",
+    linkType: "contact",
+    title: "Senior Specialist – Graphic Designer (8+ Years Exp)",
+    location: "Hyderabad",
+    type: "Full-Time",
+    desc: "Create high-quality visual designs, driving strong brand communication and user engagement.",
+    skills: ["Adobe Creative Suite", "Visual Design", "UX/UI", "Data Visualization"]
+  },
+  {
+    id: "software-engineer",
+    linkType: "contact",
+    title: "Sr. Software Engineer (6–9 Years Exp)",
+    location: "Hyderabad",
+    type: "Hybrid (4 Days Office + 1 Day WFH)",
+    desc: "Design and develop scalable software solutions using .NET technologies and object-oriented programming.",
+    skills: [".NET & C#", "OOP", "UML", "Git / SVN"]
+  },
+  {
+    id: "digital-marketing",
+    linkType: "contact",
+    title: "Digital Marketing Associate",
+    location: "Pune",
+    type: "Full-Time",
+    desc: "Manage in-store sales and drive digital engagement through social media and customer interaction.",
+    skills: ["Sales", "Social Media", "Content", "Communication"]
+  },
+  {
+    id: "industry-lead",
+    linkType: "contact",
+    title: "Industry Vertical Lead (10–15 Years Exp)",
+    location: "USA",
+    type: "Full-Time",
+    desc: "Lead and grow the Life Sciences vertical by driving strategic sales and revenue.",
+    skills: ["Sales Strategy", "Client Management", "Market Expansion"]
+  },
+  {
+    id: "business-transformation",
+    linkType: "contact",
+    title: "Lead Business Transformation (5–7 Years Exp)",
+    location: "Mumbai",
+    type: "Full-Time / Hybrid",
+    desc: "Lead business transformation initiatives to drive EBITDA growth and operational excellence.",
+    skills: ["Strategy", "Financial Analysis", "Lean / Six Sigma"]
+  }
 ];
 
 const Careers = () => {
