@@ -13,7 +13,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    value: "+91 97043 994488",
+    value: "+91 97043 99488",
     sub: "Mon–Fri, 9am – 6pm EST",
     href: "tel:+9197043994488",
   },

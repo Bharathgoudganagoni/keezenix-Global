@@ -126,7 +126,7 @@ srikanth@keezenix.com
                 <div>
                   <p className="text-white/40 text-xs">Phone</p>
                   <a href="tel:+9197043994488" className="text-white/70 text-sm hover:text-secondary">
-                    +91 97043 994488
+                    +91 97043 99488
                   </a>
                 </div>
               </li>
