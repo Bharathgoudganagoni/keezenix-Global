@@ -327,7 +327,7 @@ const Contact = () => {
                     className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     <Phone size={15} className="text-primary flex-shrink-0" />
-                    +91 97043 994488
+                    +91 97043 99488
                   </a>
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <MapPin size={15} className="text-primary flex-shrink-0" />

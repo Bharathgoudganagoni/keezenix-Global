@@ -42,7 +42,6 @@ const benefits = [
 const jobs = [
   {
     id: "hr-assistant",
-    linkType: "details",
     title: "HR Assistant (0–2 years Exp)",
     location: "Remote / India",
     type: "Full-Time",
@@ -51,7 +50,6 @@ const jobs = [
   },
   {
     id: "system-test",
-    linkType: "contact",
     title: "Senior System Test Engineer (6–9 Years Exp)",
     location: "India",
     type: "Hybrid (4 Days Office + 1 Day WFH)",
@@ -60,7 +58,6 @@ const jobs = [
   },
   {
     id: "data-engineer",
-    linkType: "contact",
     title: "Senior Data Engineer (6–8 Years Exp)",
     location: "Bengaluru",
     type: "Full-Time",
@@ -69,7 +66,6 @@ const jobs = [
   },
   {
     id: "algorithm-engineer",
-    linkType: "contact",
     title: "Algorithm Engineer (1+ Years Exp)",
     location: "Chennai",
     type: "Full-Time",
@@ -78,7 +74,6 @@ const jobs = [
   },
   {
     id: "graphic-designer",
-    linkType: "contact",
     title: "Senior Specialist – Graphic Designer (8+ Years Exp)",
     location: "Hyderabad",
     type: "Full-Time",
@@ -87,7 +82,6 @@ const jobs = [
   },
   {
     id: "software-engineer",
-    linkType: "contact",
     title: "Sr. Software Engineer (6–9 Years Exp)",
     location: "Hyderabad",
     type: "Hybrid (4 Days Office + 1 Day WFH)",
@@ -96,7 +90,6 @@ const jobs = [
   },
   {
     id: "digital-marketing",
-    linkType: "contact",
     title: "Digital Marketing Associate",
     location: "Pune",
     type: "Full-Time",
@@ -105,7 +98,6 @@ const jobs = [
   },
   {
     id: "industry-lead",
-    linkType: "contact",
     title: "Industry Vertical Lead (10–15 Years Exp)",
     location: "USA",
     type: "Full-Time",
@@ -114,7 +106,6 @@ const jobs = [
   },
   {
     id: "business-transformation",
-    linkType: "contact",
     title: "Lead Business Transformation (5–7 Years Exp)",
     location: "Mumbai",
     type: "Full-Time / Hybrid",
@@ -126,8 +117,6 @@ const jobs = [
 const Careers = () => {
   return (
     <div className="overflow-x-hidden">
-
-      {/* ─── Hero Section ─── */}
       <section
         className="pt-32 pb-20 text-center"
         style={{ background: "var(--hero-gradient)" }}
@@ -143,7 +132,6 @@ const Careers = () => {
         </AnimatedSection>
       </section>
 
-      {/* ─── Benefits Section ─── */}
       <section className="py-20 bg-white">
         <div className="container max-w-7xl mx-auto px-4">
           <AnimatedSection>
@@ -167,10 +155,8 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* ─── Job Openings ─── */}
       <section className="py-20" style={{ background: "hsl(var(--section-bg))" }}>
         <div className="container max-w-7xl mx-auto px-4">
-
           <AnimatedSection>
             <div className="text-center mb-12">
               <span className="green-badge">Open Roles</span>
@@ -179,63 +165,51 @@ const Careers = () => {
           </AnimatedSection>
 
           <div className="space-y-6">
-            {jobs.map((job, i) => {
+            {jobs.map((job, i) => (
+              <AnimatedSection key={job.id} delay={i * 100}>
+                <Link to={`/careers/${job.id}`} className="block">
+                  <div className="service-card p-6 flex flex-col md:flex-row md:justify-between gap-5 cursor-pointer hover:shadow-lg transition">
+                    <div>
+                      <h3 className="font-bold text-lg">{job.title}</h3>
 
-              const linkPath =
-                job.linkType === "details"
-                  ? `/careers/${job.id}`
-                  : `/contact`;
-
-              return (
-                <AnimatedSection key={job.id} delay={i * 100}>
-                  <Link to={linkPath} className="block">
-                    <div className="service-card p-6 flex flex-col md:flex-row md:justify-between gap-5 cursor-pointer hover:shadow-lg transition">
-
-                      <div>
-                        <h3 className="font-bold text-lg">{job.title}</h3>
-
-                        <div className="flex gap-4 text-sm text-muted-foreground mt-1">
-                          <span className="flex items-center gap-1">
-                            <MapPin size={14} /> {job.location}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Clock size={14} /> {job.type}
-                          </span>
-                        </div>
-
-                        <p className="text-sm mt-2 text-muted-foreground">
-                          {job.desc}
-                        </p>
-
-                        <div className="flex flex-wrap gap-2 mt-3">
-                          {job.skills.map((skill) => (
-                            <span
-                              key={skill}
-                              className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
+                      <div className="flex gap-4 text-sm text-muted-foreground mt-1 flex-wrap">
+                        <span className="flex items-center gap-1">
+                          <MapPin size={14} /> {job.location}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock size={14} /> {job.type}
+                        </span>
                       </div>
 
-                      <div className="flex items-center text-primary text-sm font-semibold gap-1">
-                        Apply Now <ChevronRight size={14} />
-                      </div>
+                      <p className="text-sm mt-2 text-muted-foreground">
+                        {job.desc}
+                      </p>
 
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        {job.skills.map((skill) => (
+                          <span
+                            key={skill}
+                            className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </Link>
-                </AnimatedSection>
-              );
-            })}
+
+                    <div className="flex items-center text-primary text-sm font-semibold gap-1">
+                      View Details <ChevronRight size={14} />
+                    </div>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ─── Culture Section ─── */}
       <section className="py-20 bg-white">
         <div className="container max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-
           <AnimatedSection>
             <img
               src={officeImg}
@@ -266,11 +240,9 @@ const Careers = () => {
               ))}
             </div>
           </AnimatedSection>
-
         </div>
       </section>
 
-      {/* ─── CTA Section ─── */}
       <section
         className="py-20 text-center"
         style={{ background: "var(--hero-gradient)" }}
@@ -288,7 +260,6 @@ const Careers = () => {
           </Link>
         </AnimatedSection>
       </section>
-
     </div>
   );
 };
