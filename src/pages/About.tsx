@@ -47,7 +47,7 @@ const values = [
 ];
 
 const team = [
-  { name: "Michael Chen", role: "CEO & Founder", initial: "M" },
+  { name: "Keesara Srikanth Reddy", role: "Co-Founder|Director - HR", initial: "KS" },
   { name: "Priya Sharma", role: "CTO", initial: "P" },
   { name: "James Okafor", role: "Head of Recruitment", initial: "J" },
   { name: "Sofia Rodriguez", role: "Director of Operations", initial: "S" },
