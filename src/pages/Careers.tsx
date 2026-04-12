@@ -8,7 +8,8 @@ import {
   MapPin,
   Clock,
   ChevronRight,
-  CheckCircle2
+  CheckCircle2,
+  DollarSign
 } from "lucide-react";
 
 import AnimatedSection from "@/components/AnimatedSection";
@@ -16,6 +17,11 @@ import officeImg from "@/assets/web-dev.jpg";
 
 /* ─── Benefits Section ─── */
 const benefits = [
+  {
+    icon: DollarSign,
+    title: "Competitive Pay",
+    desc: "Industry-leading compensation packages and performance bonuses."
+  },
   {
     icon: Heart,
     title: "Health & Wellness",
@@ -141,10 +147,10 @@ const Careers = () => {
             </div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-5 gap-6">
             {benefits.map((item, i) => (
-              <AnimatedSection key={item.title} delay={i * 100}>
-                <div className="service-card p-6 text-center">
+              <AnimatedSection key={item.title} delay={i * 100} className="h-full">
+                <div className="service-card p-6 text-center h-full flex flex-col">
                   <item.icon size={28} className="mx-auto mb-3 text-primary" />
                   <h3 className="font-bold mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.desc}</p>

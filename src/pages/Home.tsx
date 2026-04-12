@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   Code2, Smartphone, TrendingUp, Users, CheckCircle2,
@@ -144,6 +145,30 @@ const stats = [
 ];
 
 const Home = () => {
+  const metricsRef = useRef<HTMLDivElement | null>(null);
+  const [isMetricsVisible, setIsMetricsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = metricsRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsMetricsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="overflow-x-hidden">
       {/* ─── Hero Section ─── */}
@@ -461,6 +486,7 @@ const Home = () => {
 
             <AnimatedSection direction="right">
               <div
+                ref={metricsRef}
                 className="rounded-3xl p-8 border border-border/40"
                 style={{
                   background: "linear-gradient(135deg, hsl(var(--primary)/0.04), hsl(var(--secondary)/0.06))",
@@ -475,7 +501,7 @@ const Home = () => {
                     { label: "Project Success Rate", value: 98, color: "hsl(var(--secondary))" },
                     { label: "On-Time Delivery", value: 95, color: "hsl(var(--accent))" },
                     { label: "Client Satisfaction", value: 99, color: "hsl(var(--primary))" },
-                  ].map((metric) => (
+                  ].map((metric, index) => (
                     <div key={metric.label}>
                       <div className="flex justify-between mb-2">
                         <span className="text-sm font-medium text-foreground">
@@ -487,10 +513,11 @@ const Home = () => {
                       </div>
                       <div className="h-2 rounded-full bg-muted overflow-hidden">
                         <div
-                          className="h-full rounded-full transition-all duration-1000"
+                          className="h-full rounded-full"
                           style={{
-                            width: `${metric.value}%`,
+                            width: isMetricsVisible ? `${metric.value}%` : "0%",
                             background: metric.color,
+                            transition: `width 1.5s ease-in-out ${index * 0.2}s`,
                           }}
                         />
                       </div>

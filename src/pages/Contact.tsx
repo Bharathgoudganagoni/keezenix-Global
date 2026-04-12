@@ -6,7 +6,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    value: "srikanth@keezenix.com",
+    value: "Srikanth@Keezenix.com",
     sub: "We reply within 24 hours",
     href: "mailto:srikanth@keezenix.com",
   },
@@ -38,6 +38,7 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
+    organization: "",
     subject: "",
     service: "",
     message: "",
@@ -144,7 +145,7 @@ const Contact = () => {
                   <button
                     onClick={() => {
                       setSubmitted(false);
-                      setFormData({ name: "", email: "", phone: "", subject: "", service: "", message: "" });
+                      setFormData({ name: "", email: "", phone: "", organization: "", subject: "", service: "", message: "" });
                     }}
                     className="btn-primary"
                   >
@@ -207,6 +208,42 @@ const Contact = () => {
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">
+                        Organization / College
+                      </label>
+                      <input
+                        type="text"
+                        name="organization"
+                        list="colleges-list"
+                        value={formData.organization}
+                        onChange={handleChange}
+                        placeholder="Enter company or college name"
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-white text-foreground text-sm placeholder-muted-foreground focus:outline-none transition-all"
+                        onFocus={(e) => (e.target.style.borderColor = "hsl(var(--primary)/0.5)")}
+                        onBlur={(e) => (e.target.style.borderColor = "")}
+                      />
+                      <datalist id="colleges-list">
+                        <option value="IIT Hyderabad" />
+                        <option value="NIT Warangal" />
+                        <option value="IIIT Hyderabad" />
+                        <option value="JNTU Hyderabad" />
+                        <option value="Osmania University" />
+                        <option value="CBIT (Chaitanya Bharathi Institute of Technology)" />
+                        <option value="VNR VJIET" />
+                        <option value="Vasavi College of Engineering" />
+                        <option value="GRIET (Gokaraju Rangaraju Institute of Engineering and Technology)" />
+                        <option value="CVR College of Engineering" />
+                        <option value="Anurag University" />
+                        <option value="BVRIT (Padmasri Dr. B.V Raju Institute of Technology)" />
+                        <option value="KITS (Kakatiya Institute of Technology and Science)" />
+                        <option value="Mahatma Gandhi Institute of Technology (MGIT)" />
+                        <option value="Vardhaman College of Engineering" />
+                      </datalist>
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">
                         Service Interested In
                       </label>
                       <select
@@ -227,23 +264,22 @@ const Contact = () => {
                         <option>Other</option>
                       </select>
                     </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">
-                      Subject *
-                    </label>
-                    <input
-                      type="text"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      placeholder="How can we help you?"
-                      className="w-full px-4 py-3 rounded-xl border border-border bg-white text-foreground text-sm placeholder-muted-foreground focus:outline-none transition-all"
-                      onFocus={(e) => (e.target.style.borderColor = "hsl(var(--primary)/0.5)")}
-                      onBlur={(e) => (e.target.style.borderColor = "")}
-                    />
+                    <div>
+                      <label className="block text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">
+                        Subject *
+                      </label>
+                      <input
+                        type="text"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        required
+                        placeholder="How can we help you?"
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-white text-foreground text-sm placeholder-muted-foreground focus:outline-none transition-all"
+                        onFocus={(e) => (e.target.style.borderColor = "hsl(var(--primary)/0.5)")}
+                        onBlur={(e) => (e.target.style.borderColor = "")}
+                      />
+                    </div>
                   </div>
 
                   <div>
@@ -320,7 +356,7 @@ const Contact = () => {
                     className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     <Mail size={15} className="text-primary flex-shrink-0" />
-                    srikanth@keezenix.com
+                    Srikanth@Keezenix.com
                   </a>
                   <a
                     href="tel:+9197043994488"
@@ -340,13 +376,15 @@ const Contact = () => {
                 </p>
                 <div className="flex gap-3">
                   {[
-                    { icon: Linkedin, label: "LinkedIn" },
-                    { icon: Facebook, label: "Facebook" },
-                    { icon: Instagram, label: "Instagram" },
-                  ].map(({ icon: Icon, label }) => (
+                    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/keezenixglobal/" },
+                    { icon: Facebook, label: "Facebook", href: "#" },
+                    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/keezenixglobal/?utm_source=ig_web_button_share_sheet" },
+                  ].map(({ icon: Icon, label, href }) => (
                     <a
                       key={label}
-                      href="#"
+                      href={href}
+                      target={href !== "#" ? "_blank" : undefined}
+                      rel={href !== "#" ? "noopener noreferrer" : undefined}
                       aria-label={label}
                       className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 border border-border hover:border-primary hover:text-primary text-muted-foreground"
                     >
