@@ -6,12 +6,11 @@ import {
 import AnimatedSection from "@/components/AnimatedSection";
 import aboutOfficeImg from "@/assets/about-office.jpg";
 import techBgImg from "@/assets/tech-bg.jpg";
-import team1 from "@/assets/team1.jpg";
 import team2 from "@/assets/team2.jpg";
 import team3 from "@/assets/team3.jpg";
 import team4 from "@/assets/team4.jpg";
 
-const teamImages = [team1, team2, team3, team4];
+const teamImages = [team2, team3, team4,team3];
 
 const values = [
   {
@@ -47,10 +46,7 @@ const values = [
 ];
 
 const team = [
-  { name: "Keesara Srikanth Reddy", role: "Co-Founder|Director - HR", initial: "KS" },
-  { name: "Priya Sharma", role: "CTO", initial: "P" },
-  { name: "James Okafor", role: "Head of Recruitment", initial: "J" },
-  { name: "Sofia Rodriguez", role: "Director of Operations", initial: "S" },
+  { name: "Keesara Srikanth Reddy", role: "Co-Founder | Director - HR", initial: "KS" },
 ];
 
 const About = () => {
