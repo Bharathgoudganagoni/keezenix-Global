@@ -377,7 +377,7 @@ const Contact = () => {
                 <div className="flex gap-3">
                   {[
                     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/keezenixglobal/" },
-                    { icon: Facebook, label: "Facebook", href: "#" },
+                    { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61573277142575" },
                     { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/keezenixglobal/?utm_source=ig_web_button_share_sheet" },
                   ].map(({ icon: Icon, label, href }) => (
                     <a
