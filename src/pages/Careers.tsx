@@ -26,7 +26,7 @@ const benefits = [
   {
     icon: Heart,
     title: "Health & Wellness",
-    desc: "Comprehensive health coverage and employee wellness programs."
+    desc: "Comprehensive health coverage and employee wellness prograams."
   },
   {
     icon: Coffee,

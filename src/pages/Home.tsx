@@ -17,7 +17,9 @@ import dupontLogo from "@/assets/dupont.jpg";
 import cienaLogo from "@/assets/ciena.png";
 import caterpillarLogo from "@/assets/caterpillar.jpg";
 import cdwLogo from "@/assets/cdw.png";
+import cdxLogo from "@/assets/CDX.png";
 import servicenowLogo from "@/assets/servicenow.jpg";
+import goldmanlogo from "@/assets/golden.png";
 
 const clients = [
   { name: "Comcast", logo: comcastLogo },
@@ -25,6 +27,8 @@ const clients = [
   { name: "Ciena", logo: cienaLogo },
   { name: "Caterpillar", logo: caterpillarLogo },
   { name: "CDW", logo: cdwLogo },
+  { name: "CDX", logo: cdxLogo },
+  { name: "goldman", logo: goldmanlogo },
   { name: "ServiceNow", logo: servicenowLogo },
 ];
 
@@ -36,10 +40,10 @@ const testimonials = [
       "Keezenix helped us scale our development team quickly with top-quality talent. Their process is smooth and reliable.",
   },
   {
-    name: "Anjali Mehta",
-    role: "Marketing Head",
+    name: "Govindarajulu. B",
+    role: "cyber security",
     feedback:
-      "Their digital marketing strategies boosted our online presence and conversions significantly. Highly recommended!",
+      "Keezenix has consistently demonstrated excellence in delivering niche cybersecurity talent.",
   },
   {
     name: "David Johnson",
@@ -409,37 +413,37 @@ const Home = () => {
               <div key={service.title}>
                 <AnimatedSection delay={i * 100}>
                   <div className="service-card h-full group overflow-hidden p-0">
-                  {/* Service image */}
-                  <div className="relative h-40 overflow-hidden rounded-t-2xl">
-                    <img
-                      src={service.img}
-                      alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div
-                      className="absolute inset-0"
-                      style={{ background: "linear-gradient(to bottom, transparent 40%, hsl(var(--primary)/0.7) 100%)" }}
-                    />
-                    <div className={`absolute bottom-3 left-3 w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br ${service.color} backdrop-blur-sm border border-white/30`}>
-                      <service.icon size={18} className={service.iconColor} />
+                    {/* Service image */}
+                    <div className="relative h-40 overflow-hidden rounded-t-2xl">
+                      <img
+                        src={service.img}
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{ background: "linear-gradient(to bottom, transparent 40%, hsl(var(--primary)/0.7) 100%)" }}
+                      />
+                      <div className={`absolute bottom-3 left-3 w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br ${service.color} backdrop-blur-sm border border-white/30`}>
+                        <service.icon size={18} className={service.iconColor} />
+                      </div>
+                    </div>
+                    {/* Card content */}
+                    <div className="p-5">
+                      <h3 className="text-foreground font-bold text-base mb-2 group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                        {service.desc}
+                      </p>
+                      <Link
+                        to="/services"
+                        className="text-secondary text-xs font-semibold flex items-center gap-1 hover:gap-2 transition-all"
+                      >
+                        Learn More <ChevronRight size={13} />
+                      </Link>
                     </div>
                   </div>
-                  {/* Card content */}
-                  <div className="p-5">
-                    <h3 className="text-foreground font-bold text-base mb-2 group-hover:text-primary transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                      {service.desc}
-                    </p>
-                    <Link
-                      to="/services"
-                      className="text-secondary text-xs font-semibold flex items-center gap-1 hover:gap-2 transition-all"
-                    >
-                      Learn More <ChevronRight size={13} />
-                    </Link>
-                  </div>
-                </div>
                 </AnimatedSection>
               </div>
             ))}
@@ -466,18 +470,18 @@ const Home = () => {
                   <div key={feat.title}>
                     <AnimatedSection delay={i * 80}>
                       <div className="feature-item group">
-                      <div className="feature-icon group-hover:scale-110 transition-transform duration-200">
-                        <feat.icon size={20} className="text-white" />
+                        <div className="feature-icon group-hover:scale-110 transition-transform duration-200">
+                          <feat.icon size={20} className="text-white" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-sm text-foreground mb-1">
+                            {feat.title}
+                          </h4>
+                          <p className="text-muted-foreground text-sm leading-relaxed">
+                            {feat.desc}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-sm text-foreground mb-1">
-                          {feat.title}
-                        </h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          {feat.desc}
-                        </p>
-                      </div>
-                    </div>
                     </AnimatedSection>
                   </div>
                 ))}
@@ -555,7 +559,7 @@ const Home = () => {
       {/* ─── Testimonials Section ─── */}
       <section className="py-20 bg-white">
         <div className="container max-w-7xl mx-auto px-4">
-          
+
           <AnimatedSection>
             <div className="text-center mb-14">
               <span className="green-badge">Testimonials</span>
