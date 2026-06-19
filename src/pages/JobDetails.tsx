@@ -213,6 +213,32 @@ const jobs: Job[] = [
       "Strong leadership"
     ],
     skills: ["Strategy", "Finance", "Operations"]
+  },
+  {
+    id: "python-automation-developer",
+    title: "Python Automation Developer (Sr. / Advanced Sr.)",
+    location: "Pune",
+    type: "Full-Time",
+    desc: "We are looking for a Python Automation Developer with strong OOP experience to develop automation solutions. Qualification: B.E./MCA/M.Sc./B.Sc. Salary: INR 12,50,000 – 20,00,000 (DOE).",
+    responsibilities: [
+      "Experience using OOPs in Python/Java/C++/C# (willingness to learn Python if from other languages)",
+      "Good analytical, design, coding and debugging skills",
+      "Good analytical and requirement understanding skills",
+      "Good design patterns, frameworks & coding skills – translate requirements into design and fully functional code",
+      "Strong English communication skills",
+      "Working experience on defect management tools (desirable)",
+      "Working experience on GIT/SVN or any code repository management tool (desirable)",
+      "Development using Eclipse IDE or equivalent IDE (desirable)"
+    ],
+    requirements: [
+      "7–9 years of relevant experience",
+      "Qualification: B.E./MCA/M.Sc./B.Sc.",
+      "Good team player with openness to learn new technologies",
+      "Self-motivated and proactive – works with minimum supervision",
+      "Should be able to supervise juniors",
+      "Takes ownership of tasks and deliverables"
+    ],
+    skills: ["Python / OOP", "Design Patterns", "Git / SVN", "Eclipse IDE"]
   }
 ];
 

@@ -9,7 +9,8 @@ import {
   Clock,
   ChevronRight,
   CheckCircle2,
-  DollarSign
+  DollarSign,
+  Sparkles
 } from "lucide-react";
 
 import AnimatedSection from "@/components/AnimatedSection";
@@ -46,6 +47,15 @@ const benefits = [
 
 /* ─── Job Openings ─── */
 const jobs = [
+  {
+    id: "python-automation-developer",
+    title: "Python Automation Developer – Sr. / Advanced Sr. (7–9 Years Exp)",
+    location: "Pune",
+    type: "Full-Time",
+    desc: "Develop automation solutions using Python with strong OOP skills, design patterns, and debugging expertise. Salary: INR 12,50,000 – 20,00,000 (DOE).",
+    skills: ["Python / OOP", "Design Patterns", "Git / SVN", "Eclipse IDE"],
+    isNew: true
+  },
   {
     id: "hr-assistant",
     title: "HR Assistant (0–2 years Exp)",
@@ -117,7 +127,8 @@ const jobs = [
     type: "Full-Time / Hybrid",
     desc: "Lead business transformation initiatives to drive EBITDA growth and operational excellence.",
     skills: ["Strategy", "Financial Analysis", "Lean / Six Sigma"]
-  }
+  },
+  
 ];
 
 const Careers = () => {
@@ -174,9 +185,21 @@ const Careers = () => {
             {jobs.map((job, i) => (
               <AnimatedSection key={job.id} delay={i * 100}>
                 <Link to={`/careers/${job.id}`} className="block">
-                  <div className="service-card p-6 flex flex-col md:flex-row md:justify-between gap-5 cursor-pointer hover:shadow-lg transition">
+                  <div
+                    className={`service-card p-6 flex flex-col md:flex-row md:justify-between gap-5 cursor-pointer hover:shadow-lg transition${
+                      (job as any).isNew ? " new-opening-card" : ""
+                    }`}
+                  >
                     <div>
-                      <h3 className="font-bold text-lg">{job.title}</h3>
+                      <div className="flex items-center gap-3 flex-wrap">
+                        <h3 className="font-bold text-lg">{job.title}</h3>
+                        {(job as any).isNew && (
+                          <span className="new-badge">
+                            <Sparkles size={12} />
+                            NEW OPENING
+                          </span>
+                        )}
+                      </div>
 
                       <div className="flex gap-4 text-sm text-muted-foreground mt-1 flex-wrap">
                         <span className="flex items-center gap-1">
