@@ -19,6 +19,7 @@ import caterpillarLogo from "@/assets/caterpillar.jpg";
 import cdwLogo from "@/assets/cdw.png";
 import cdxLogo from "@/assets/CDX.png";
 import servicenowLogo from "@/assets/servicenow.jpg";
+import goldmanlogo from "@/assets/golden.png";
 
 const clients = [
   { name: "Comcast", logo: comcastLogo },
@@ -27,6 +28,7 @@ const clients = [
   { name: "Caterpillar", logo: caterpillarLogo },
   { name: "CDW", logo: cdwLogo },
   { name: "CDX", logo: cdxLogo },
+  { name: "goldman", logo: goldmanlogo },
   { name: "ServiceNow", logo: servicenowLogo },
 ];
 
@@ -38,10 +40,10 @@ const testimonials = [
       "Keezenix helped us scale our development team quickly with top-quality talent. Their process is smooth and reliable.",
   },
   {
-    name: "Anjali Mehta",
-    role: "Marketing Head",
+    name: "Govindarajulu. B",
+    role: "cyber security",
     feedback:
-      "Their digital marketing strategies boosted our online presence and conversions significantly. Highly recommended!",
+      "Keezenix has consistently demonstrated excellence in delivering niche cybersecurity talent.",
   },
   {
     name: "David Johnson",
