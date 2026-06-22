@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { MapPin, Clock, CheckCircle2, CheckCircle } from "lucide-react";
 import { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
 
 /* ✅ Job Type */
 type Job = {
@@ -284,9 +283,8 @@ const JobDetails = () => {
       formData.append("job_title", job.title);
       formData.append("resume", file);
 
-      // Get VITE_API_URL, fallback to production backend if not running on localhost
-      const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-      const apiUrl = import.meta.env.VITE_API_URL || (isLocal ? "http://localhost:5000" : "https://keezenix-backend.onrender.com");
+      // Get VITE_API_URL, fallback to localhost:5000 in dev
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
       const response = await fetch(`${apiUrl}/apply`, {
         method: "POST",
         body: formData,
