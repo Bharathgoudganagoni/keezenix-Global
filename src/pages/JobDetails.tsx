@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { MapPin, Clock, CheckCircle2, CheckCircle } from "lucide-react";
 import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 /* ✅ Job Type */
 type Job = {
