@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { MapPin, Clock, CheckCircle2, CheckCircle } from "lucide-react";
 import { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
 
 /* ✅ Job Type */
 type Job = {
@@ -277,38 +276,24 @@ const JobDetails = () => {
       setIsSubmitting(true);
 
       const formData = new FormData();
-      formData.append("file", file);
-      formData.append("upload_preset", "resume_upload");
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("phone", phone);
+      formData.append("message", message || "No message provided");
+      formData.append("job_title", job.title);
+      formData.append("resume", file);
 
-      const cloudRes = await fetch(
-        "https://api.cloudinary.com/v1_1/dlvcvmqpr/raw/upload",
-        {
-          method: "POST",
-          body: formData
-        }
-      );
+      // Get VITE_API_URL, fallback to localhost:5000 in dev
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const response = await fetch(`${apiUrl}/apply`, {
+        method: "POST",
+        body: formData,
+      });
 
-      const cloudData = await cloudRes.json();
-
-      if (!cloudRes.ok) {
-        throw new Error(cloudData.error?.message || "Upload failed");
+      if (!response.ok) {
+        const errText = await response.text();
+        throw new Error(errText || "Application submission failed");
       }
-
-      const resumeUrl = cloudData.secure_url;
-
-      await emailjs.send(
-        "service_xrf3ais",
-        "template_231xr0q",
-        {
-          name,
-          email,
-          phone,
-          message: message || "No message provided",
-          job_title: job.title,
-          resume_link: resumeUrl
-        },
-        "MuFxVB-1cwT2brQJ-"
-      );
 
       setSuccess(true);
       setName("");
@@ -322,9 +307,9 @@ const JobDetails = () => {
       setTimeout(() => {
         navigate("/careers");
       }, 3000);
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      alert("Failed to send application");
+      alert(error.message || "Failed to send application");
     } finally {
       setIsSubmitting(false);
     }
