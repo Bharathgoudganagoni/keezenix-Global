@@ -297,8 +297,8 @@ const JobDetails = () => {
       const resumeUrl = cloudData.secure_url;
 
       await emailjs.send(
-        "service_shercmh",
-        "template_y0j7dlu",
+        "service_xrf3ais",
+        "template_231xr0q",
         {
           name,
           email,
@@ -307,7 +307,7 @@ const JobDetails = () => {
           job_title: job.title,
           resume_link: resumeUrl
         },
-        "BNcg9oCi16DISG1Bj"
+        "MuFxVB-1cwT2brQJ-"
       );
 
       setSuccess(true);
@@ -320,13 +320,8 @@ const JobDetails = () => {
       if (fileInputRef.current) fileInputRef.current.value = "";
 
       setTimeout(() => {
-        navigate("/application-submitted", {
-          state: {
-            name,
-            jobTitle: job.title
-          }
-        });
-      }, 1500);
+        navigate("/careers");
+      }, 3000);
     } catch (error) {
       console.error(error);
       alert("Failed to send application");
