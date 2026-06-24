@@ -2,6 +2,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { MapPin, Clock, CheckCircle2, CheckCircle } from "lucide-react";
 import { useState, useRef } from "react";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 /* ✅ Job Type */
 type Job = {
   id: string;
@@ -16,6 +18,29 @@ type Job = {
 
 /* ✅ Job Data */
 const jobs: Job[] = [
+  {
+    id: "python-automation-developer",
+    title: "Python Automation Developer – Sr. / Advanced Sr.",
+    location: "Pune",
+    type: "Full-Time",
+    desc: "Develop automation solutions using Python with strong OOP skills, design patterns, and debugging expertise. Salary: INR 12,50,000 – 20,00,000 (DOE).",
+    responsibilities: [
+      "Design and implement Python automation frameworks",
+      "Apply OOP principles and design patterns",
+      "Debug and resolve complex automation issues",
+      "Collaborate with cross-functional teams",
+      "Maintain and improve existing automation scripts",
+      "Perform code reviews and ensure code quality"
+    ],
+    requirements: [
+      "7–9 years experience in Python automation",
+      "Strong OOP and design pattern knowledge",
+      "Experience with Git / SVN version control",
+      "Proficiency with Eclipse IDE or similar",
+      "Strong debugging and problem-solving skills"
+    ],
+    skills: ["Python / OOP", "Design Patterns", "Git / SVN", "Eclipse IDE"]
+  },
   {
     id: "hr-assistant",
     title: "Executive Assistant – Recruitments & Client Services",
@@ -212,32 +237,6 @@ const jobs: Job[] = [
       "Strong leadership"
     ],
     skills: ["Strategy", "Finance", "Operations"]
-  },
-  {
-    id: "python-automation-developer",
-    title: "Python Automation Developer (Sr. / Advanced Sr.)",
-    location: "Pune",
-    type: "Full-Time",
-    desc: "We are looking for a Python Automation Developer with strong OOP experience to develop automation solutions. Qualification: B.E./MCA/M.Sc./B.Sc. Salary: INR 12,50,000 – 20,00,000 (DOE).",
-    responsibilities: [
-      "Experience using OOPs in Python/Java/C++/C# (willingness to learn Python if from other languages)",
-      "Good analytical, design, coding and debugging skills",
-      "Good analytical and requirement understanding skills",
-      "Good design patterns, frameworks & coding skills – translate requirements into design and fully functional code",
-      "Strong English communication skills",
-      "Working experience on defect management tools (desirable)",
-      "Working experience on GIT/SVN or any code repository management tool (desirable)",
-      "Development using Eclipse IDE or equivalent IDE (desirable)"
-    ],
-    requirements: [
-      "7–9 years of relevant experience",
-      "Qualification: B.E./MCA/M.Sc./B.Sc.",
-      "Good team player with openness to learn new technologies",
-      "Self-motivated and proactive – works with minimum supervision",
-      "Should be able to supervise juniors",
-      "Takes ownership of tasks and deliverables"
-    ],
-    skills: ["Python / OOP", "Design Patterns", "Git / SVN", "Eclipse IDE"]
   }
 ];
 
@@ -268,32 +267,30 @@ const JobDetails = () => {
     e.preventDefault();
 
     if (!file) {
-      alert("Please upload resume");
+      alert("Please upload your resume");
       return;
     }
 
     try {
       setIsSubmitting(true);
 
+      // Send everything to the backend — it handles EmailJS with valid credentials
       const formData = new FormData();
+      formData.append("resume", file);
       formData.append("name", name);
       formData.append("email", email);
       formData.append("phone", phone);
-      formData.append("message", message || "No message provided");
       formData.append("job_title", job.title);
-      formData.append("resume", file);
+      formData.append("message", message || "No message provided");
 
-      // Use VITE_API_URL if set; otherwise detect dev vs production automatically
-      const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-      const apiUrl = import.meta.env.VITE_API_URL || (isLocal ? "http://localhost:5000" : "https://keezenix-backend.onrender.com");
-      const response = await fetch(`${apiUrl}/apply`, {
+      const res = await fetch(`${API_URL}/apply`, {
         method: "POST",
-        body: formData,
+        body: formData
       });
 
-      if (!response.ok) {
-        const errText = await response.text();
-        throw new Error(errText || "Application submission failed");
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(errText || `Server error: ${res.status}`);
       }
 
       setSuccess(true);
@@ -306,11 +303,16 @@ const JobDetails = () => {
       if (fileInputRef.current) fileInputRef.current.value = "";
 
       setTimeout(() => {
-        navigate("/careers");
-      }, 3000);
+        navigate("/application-submitted", {
+          state: {
+            name,
+            jobTitle: job.title
+          }
+        });
+      }, 1500);
     } catch (error: any) {
-      console.error(error);
-      alert(error.message || "Failed to send application");
+      console.error("❌ Submission Error:", error?.message || error);
+      alert(error?.message || "Failed to send application. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
