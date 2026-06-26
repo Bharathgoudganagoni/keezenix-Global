@@ -48,13 +48,21 @@ const benefits = [
 /* ─── Job Openings ─── */
 const jobs = [
   {
+    id: "duck-creek-billing-developer",
+    title: "Duck Creek Billing Developer (5+ Years Exp)",
+    location: "USA",
+    type: "Full-Time",
+    desc: "Implement, customize, and support Duck Creek Billing solutions within the Property & Casualty (P&C) Insurance domain. Configure billing workflows, payment plans, commissions, and integrations.",
+    skills: ["Duck Creek Billing", ".NET / C#", "SQL Server", "REST & SOAP APIs", "XML / XSLT"],
+    isNew: true
+  },
+  {
     id: "python-automation-developer",
     title: "Python Automation Developer – Sr. / Advanced Sr. (7–9 Years Exp)",
     location: "Pune",
     type: "Full-Time",
     desc: "Develop automation solutions using Python with strong OOP skills, design patterns, and debugging expertise. Salary: INR 12,50,000 – 20,00,000 (DOE).",
-    skills: ["Python / OOP", "Design Patterns", "Git / SVN", "Eclipse IDE"],
-    isNew: true
+    skills: ["Python / OOP", "Design Patterns", "Git / SVN", "Eclipse IDE"]
   },
   {
     id: "hr-assistant",

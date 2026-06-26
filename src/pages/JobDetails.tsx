@@ -19,6 +19,34 @@ type Job = {
 /* ✅ Job Data */
 const jobs: Job[] = [
   {
+    id: "duck-creek-billing-developer",
+    title: "Duck Creek Billing Developer",
+    location: "USA",
+    type: "Full-Time",
+    desc: "We are looking for an experienced Duck Creek Billing Developer with 5+ years of hands-on experience in implementing, customizing, and supporting Duck Creek Billing solutions within the Property & Casualty (P&C) Insurance domain. The ideal candidate will play a key role in delivering scalable billing solutions, system integrations, and production support for enterprise insurance platforms.",
+    responsibilities: [
+      "Design, develop, and customize Duck Creek Billing solutions",
+      "Configure billing workflows, payment plans, commissions, collections, and billing rules",
+      "Develop integrations using REST/SOAP APIs, web services, and batch processes",
+      "Perform data migration and mapping from legacy billing systems",
+      "Collaborate with business analysts, architects, and stakeholders to deliver business requirements",
+      "Support SIT, UAT, production deployments, and post-production activities",
+      "Troubleshoot billing, reconciliation, and integration issues",
+      "Maintain technical documentation and development standards"
+    ],
+    requirements: [
+      "5+ years of hands-on Duck Creek Billing experience",
+      "Proficiency in Duck Creek Product Studio, Manuscripts & Rules",
+      "Strong .NET / C# development skills",
+      "Experience with SQL Server and XML / XSLT",
+      "Expertise with REST & SOAP web services and batch processing",
+      "Experience with Azure DevOps / Git",
+      "Domain knowledge of P&C Insurance – billing cycles, payment plans, agency commissions, installments & collections, refunds & adjustments",
+      "Bachelor's Degree in Computer Science, IT, Software Engineering, or equivalent experience"
+    ],
+    skills: ["Duck Creek Billing", "Product Studio", ".NET / C#", "SQL Server", "REST & SOAP APIs", "XML / XSLT", "Azure DevOps", "P&C Insurance"]
+  },
+  {
     id: "python-automation-developer",
     title: "Python Automation Developer – Sr. / Advanced Sr.",
     location: "Pune",
@@ -396,15 +424,23 @@ const JobDetails = () => {
             required
           />
 
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-            onChange={(e) => e.target.files && setFile(e.target.files[0])}
-            className="w-full"
-            required
-            disabled={isSubmitting}
-          />
+          <div>
+            <label className="block text-sm font-medium mb-1">
+              Upload Resume{" "}
+              <span className="text-muted-foreground font-normal">
+                (jpg, jpeg, png)
+              </span>
+            </label>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+              onChange={(e) => e.target.files && setFile(e.target.files[0])}
+              className="w-full"
+              required
+              disabled={isSubmitting}
+            />
+          </div>
 
           <textarea
             placeholder="Why should we hire you?"
