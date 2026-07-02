@@ -19,6 +19,48 @@ type Job = {
 /* ✅ Job Data */
 const jobs: Job[] = [
   {
+    id: "ai-prompt-engineer-intern",
+    title: "AI Prompt Engineer & Digital Growth Intern",
+    location: "Hyderabad (Remote / Hybrid)",
+    type: "Internship · 2 Months",
+    desc: "Join Keezenix Global and gain hands-on experience working on live EdTech, AI, Recruitment, and Digital Transformation projects. This internship is designed for ambitious graduates who want to build industry-ready skills while contributing to real business outcomes. Eligibility: Recent pass-outs. Domains: AI | Digital Marketing | Web | Product | EdTech.",
+    responsibilities: [
+      "Build AI-powered prompts and workflows using ChatGPT, Gemini, Claude & other GenAI tools",
+      "Create engaging marketing content for social media and campaigns",
+      "Support website enhancements and landing page development",
+      "Improve SEO and website visibility",
+      "Design AI-powered automation workflows",
+      "Publish blogs and technical content",
+      "Create Canva creatives, reels, and promotional videos",
+      "Assist in product launches and digital campaigns",
+      "Research emerging AI tools and industry trends",
+      "Contribute ideas to grow Keezenix's EdTech ecosystem"
+    ],
+    requirements: [
+      "Passionate about AI and emerging technologies",
+      "Curious to build products and solve real business problems",
+      "Strong communication and creative thinking skills",
+      "Quick learner with a growth mindset",
+      "Interested in startups, entrepreneurship, and innovation",
+      "Willing to work in a fast-paced environment",
+      "Recent pass-out / final year student",
+      "Selection process: Aptitude Test, GD & PI"
+    ],
+    skills: [
+      "Prompt Engineering",
+      "Generative AI Applications",
+      "Digital Marketing & Branding",
+      "Content Creation",
+      "SEO Fundamentals",
+      "Social Media Marketing",
+      "WordPress / Basic Web Development",
+      "Canva & AI Design Tools",
+      "Lead Generation",
+      "Product Thinking",
+      "Business Communication"
+    ]
+  },
+  {
     id: "duck-creek-billing-developer",
     title: "Duck Creek Billing Developer",
     location: "USA",

@@ -48,13 +48,21 @@ const benefits = [
 /* ─── Job Openings ─── */
 const jobs = [
   {
+    id: "ai-prompt-engineer-intern",
+    title: "AI Prompt Engineer & Digital Growth Intern",
+    location: "Hyderabad (Remote / Hybrid)",
+    type: "Internship · 2 Months",
+    desc: "Join Keezenix Global and gain hands-on experience working on live EdTech, AI, Recruitment, and Digital Transformation projects. Build AI-powered prompts, marketing content, automation workflows, and more.",
+    skills: ["Prompt Engineering", "Generative AI", "Digital Marketing", "SEO", "Content Creation", "Canva"],
+    isNew: true
+  },
+  {
     id: "duck-creek-billing-developer",
     title: "Duck Creek Billing Developer (5+ Years Exp)",
     location: "USA",
     type: "Full-Time",
     desc: "Implement, customize, and support Duck Creek Billing solutions within the Property & Casualty (P&C) Insurance domain. Configure billing workflows, payment plans, commissions, and integrations.",
-    skills: ["Duck Creek Billing", ".NET / C#", "SQL Server", "REST & SOAP APIs", "XML / XSLT"],
-    isNew: true
+    skills: ["Duck Creek Billing", ".NET / C#", "SQL Server", "REST & SOAP APIs", "XML / XSLT"]
   },
   {
     id: "python-automation-developer",
